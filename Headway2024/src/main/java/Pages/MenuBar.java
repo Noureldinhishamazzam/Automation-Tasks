@@ -9,6 +9,7 @@ public class MenuBar {
     WebDriver driver;
     private String userName = "Nourazzam";
 
+    //Constructor
     public MenuBar(WebDriver driver) {
         this.driver = driver;
     }
