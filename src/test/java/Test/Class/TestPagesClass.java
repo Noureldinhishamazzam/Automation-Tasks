@@ -41,7 +41,7 @@ public class TestPagesClass
     @BeforeClass
     public void setupBrowser()
     {
-        driver =DriverFactory.initiateDriver(System.getProperty("browserName"),true);
+        driver =DriverFactory.initiateDriver(System.getProperty("browserName"),true,System.getProperty("headless"));
         jm=new JsonFileManager("src/test/resources/TestData.json");
     }
 
