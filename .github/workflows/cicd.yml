@@ -38,7 +38,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn -DbrowserName="edge" -Dheadless="true" -Dtest="${{github.event.inputs.testsPath}}" test
+        run: mvn -DbrowserName="edge" -Dheadless="false" -Dtest="${{github.event.inputs.testsPath}}" test
       - name: Upload Allure Report as Artifact Windows
         uses: actions/upload-artifact@v3
         with:
