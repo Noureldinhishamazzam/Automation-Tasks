@@ -47,7 +47,7 @@ jobs:
       - name: Upload Allure Report as Artifact Windows
         uses: actions/upload-artifact@v4
         with:
-         name: Windows_Allure
+         name: Allure_Report_Windows
          path: target/site/allure-maven-plugin/index.html
 
       - name: Publish Report
@@ -89,7 +89,7 @@ jobs:
       - name: Upload Allure Report as Artifact ubuntu
         uses: actions/upload-artifact@v4
         with:
-         name: ubuntu_Allure
+         name: Allure_Report_Ubuntu
          path: target/site/allure-maven-plugin/index.html
 
       - name: Publish Report
