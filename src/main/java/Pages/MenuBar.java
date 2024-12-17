@@ -6,17 +6,20 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class MenuBar {
+    //setupDriverAndBrowser
     WebDriver driver;
     private String userName = "Nourazzam";
-
-    public MenuBar(WebDriver driver) {
-        this.driver = driver;
-    }
 
     //Locators
     private By signupLoginButtonLink = By.linkText("Signup / Login");
     private By userNameIsVisibleInHomePage = By.xpath("//a[b]");
     private By deleteButton = By.xpath("//a[@href='/delete_account']");
+
+    //constructor
+    public MenuBar(WebDriver driver) {
+        this.driver = driver;
+    }
+
     /// ///Action\\\\\\\\\\\\
     public MenuBar userClickOnSignupLoginLink()
     {

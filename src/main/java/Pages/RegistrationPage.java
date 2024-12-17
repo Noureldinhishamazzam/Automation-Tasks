@@ -10,11 +10,6 @@ public class RegistrationPage {
     //setupDriverAndBrowser
     WebDriver driver;
 
-    //Constructor
-    public RegistrationPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
     //Locators
     private By enterAccountInformationIsVisble = By.xpath("(//b)[1]");
     private By clickOnGender = By.id("id_gender1");
@@ -35,6 +30,10 @@ public class RegistrationPage {
     private By enterZipCode = By.id("zipcode");
     private By enterMobileNumber = By.id("mobile_number");
     private By clickOnCreateAccountButton = By.xpath("//button[@data-qa='create-account']");
+
+    //Constructor
+    public RegistrationPage(WebDriver driver) {
+        this.driver = driver;}
 
     @Step("Validate That User Is Located In The Registration Page ")
     /// //////Validation\\\\\\\\\\\\\\\\\\

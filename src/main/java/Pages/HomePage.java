@@ -11,12 +11,13 @@ public class HomePage {
     WebDriver driver;
     String urlOfWebsite = "https://automationexercise.com/";
 
+    //Locators
+    private By homePageIsVisible = By.xpath("//img[@src='/static/images/home/logo.png']");
+
     //Constructor
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-    //Locators
-    private By homePageIsVisible = By.xpath("//img[@src='/static/images/home/logo.png']");
 
     @Step("Validate That The User Located In The Home Page Of The System")
     /// ////////////Validation\\\\\\\\\\\\\\\\\\\\\\\
