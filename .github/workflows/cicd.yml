@@ -34,7 +34,7 @@ jobs:
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
-          maven-version: 3.9.6
+          maven-version: 3.9.9
 
       - name: Run Tests
         continue-on-error: true
@@ -72,11 +72,11 @@ jobs:
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
-          maven-version: 3.9.6
+          maven-version: 3.9.9
 
-      - name: Run Tests in Headless Mode in chrome
+      - name: Run Tests in Headless Mode in firefox
         continue-on-error: true
-        run: mvn -DBrowserName="chrome" -Dheadless="false" -Dtest="${{ github.event.inputs.testsPath}}" test
+        run: mvn -DBrowserName="firefox" -Dheadless="false" -Dtest="${{ github.event.inputs.testsPath}}" test
       - name: Generate Allure Report Single File ubuntu
         continue-on-error: true
         run: mvn allure:report
