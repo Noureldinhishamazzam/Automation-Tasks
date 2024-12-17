@@ -8,14 +8,13 @@ on:
         default: ''
 
 
-  # Trigger workflow every 10 minutes
   schedule:
     - cron: '*/5 * * * *'
 
-  # Trigger workflow when a PR is created or updated for the main branch
   pull_request:
     branches:
-      - main
+      - master
+
 
 jobs:
   Remote_Tests_Execution:
@@ -40,6 +39,11 @@ jobs:
       - name: Run Tests
         continue-on-error: true
         run: mvn -DbrowserName="edge" -Dheadless="false" -Dtest="${{github.event.inputs.testsPath}}" test
+      - name: Upload Allure Report as Artifact Windows
+        uses: actions/upload-artifact@v3
+        with:
+         name: Windows_Allure
+         path: target/site/allure-maven-plugin/index.html
 
       - name: Publish Report
         continue-on-error: true
@@ -49,6 +53,8 @@ jobs:
           name: Tests Report Edge_Windows
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
+
+
   Remote_Tests_Execution_Ubuntu_In_Chrome:
     runs-on: ubuntu-latest
     permissions:
@@ -71,6 +77,15 @@ jobs:
       - name: Run Tests in Headless Mode in chrome
         continue-on-error: true
         run: mvn -DBrowserName="chrome" -Dheadless="true" -Dtest="${{ github.event.inputs.testsPath}}" test
+      - name: Generate Allure Report Single File ubuntu
+        continue-on-error: true
+        run: mvn allure:report
+
+      - name: Upload Allure Report as Artifact ubuntu
+        uses: actions/upload-artifact@v3
+        with:
+         name: ubuntu_Allure
+         path: target/site/allure-maven-plugin/index.html
 
       - name: Publish Report
         continue-on-error: true
