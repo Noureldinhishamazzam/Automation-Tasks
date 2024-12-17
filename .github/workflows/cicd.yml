@@ -5,7 +5,7 @@ on:
     inputs:
       testsPath:
         description: 'Path to Tests to be Executed'
-        default: ''
+        default: 'Test.Class.TestPagesClass#registrationTestCases'
 
 
   schedule:
