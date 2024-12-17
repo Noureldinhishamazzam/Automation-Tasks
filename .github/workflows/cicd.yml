@@ -74,9 +74,9 @@ jobs:
         with:
           maven-version: 3.9.9
 
-      - name: Run Tests in Headless Mode in firefox
+      - name: Run Tests in Headless Mode in chrome
         continue-on-error: true
-        run: mvn -DBrowserName="firefox" -Dheadless="false" -Dtest="${{ github.event.inputs.testsPath}}" test
+        run: mvn -DBrowserName="chrome" -Dheadless="false" -Dtest="${{ github.event.inputs.testsPath}}" test
       - name: Generate Allure Report Single File ubuntu
         continue-on-error: true
         run: mvn allure:report
