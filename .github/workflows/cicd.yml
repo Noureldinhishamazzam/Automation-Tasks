@@ -39,8 +39,13 @@ jobs:
       - name: Run Tests
         continue-on-error: true
         run: mvn -DbrowserName="edge" -Dheadless="false" -Dtest="${{github.event.inputs.testsPath}}" test
+
+      - name: Generate Allure Report Single File windows
+        continue-on-error: true
+        run: mvn allure:report
+
       - name: Upload Allure Report as Artifact Windows
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
          name: Windows_Allure
          path: target/site/allure-maven-plugin/index.html
@@ -82,7 +87,7 @@ jobs:
         run: mvn allure:report
 
       - name: Upload Allure Report as Artifact ubuntu
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
          name: ubuntu_Allure
          path: target/site/allure-maven-plugin/index.html
