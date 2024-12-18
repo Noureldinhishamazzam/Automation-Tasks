@@ -7,14 +7,12 @@ on:
         description: 'Path to Tests to be Executed'
         default: 'Test.Class.TestPagesClass#registrationTestCases'
 
-
   schedule:
     - cron: '0 23 * * *'
 
   pull_request:
     branches:
       - master
-
 
 jobs:
   Remote_Tests_Execution:
@@ -38,7 +36,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn -DbrowserName="edge" -Dheadless="false" -Dtest="${{github.event.inputs.testsPath}}" test
+        run: mvn -DbrowserName="edge" -Dheadless="false" -Dtest="${{ github.event.inputs.testsPath }}" test
 
       - name: Generate Allure Report Single File windows
         continue-on-error: true
@@ -58,7 +56,6 @@ jobs:
           name: Tests Report Edge_Windows
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
-
 
   Remote_Tests_Execution_Ubuntu_In_Chrome:
     runs-on: ubuntu-latest
